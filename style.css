@@ -1,0 +1,196 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body{
+    background-image: url(./images/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contenedor{
+    position: absolute;
+    top: 5%;
+    left: 5em;
+    box-sizing: border-box;
+    margin: 5px;
+    width: 65%;
+    background-color: rgba(250,250,250, 0.8);
+    border: 8px solid rgba(100 ,150, 250, 1);
+    border-radius: 0px 20%;
+    text-align: center;
+    padding: 15px;
+}
+
+.contenedor h1{
+    font-size: 3.4em;
+    font-family: monospace;
+}
+
+
+.contenedor .contenedor-tareas{
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 2em;
+    padding: 6%;
+    text-align: left;
+}
+
+.contenedor .contenedor-tareas ol li{
+    margin: 5px;
+}
+
+.contenedor .contenedor-tareas .lista{
+    transition: all 0.3s ease;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    text-align: center;}
+
+
+.botones button{
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 1.2em;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.over-lay,.over-lay-3{
+    background-color: rgba(0, 0,0, 0.3);
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.over-lay.active,.over-lay-3.active{
+    visibility: visible;
+}
+
+.pop-up,.pop-up-3{
+    
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0,0, 0.3);
+    border-radius: 3px;
+    font-family: monospace;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: scale(0.7);
+}
+
+.pop-up .btn-cerrar,.pop-up-3 .btn-cerrar-3{
+    position: absolute;
+    right: 8px;
+    top:3px;
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: all 0.3 ease;
+    text-decoration: none;
+}
+
+.pop-up .btn-cerrar:hover,.pop-up-3 .btn-cerrar-3:hover{
+    color: #000;
+}
+
+.pop-up h3,.pop-up-3 h3{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+
+
+.pop-up  .contenedor-inputs input,.pop-up-3  .contenedor-inputs input{
+    opacity: 0;
+}
+
+.pop-up  .contenedor-inputs input,.pop-up-3  .contenedor-inputs input{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #bbb;
+}
+
+
+.pop-up  .btn-agregar,.pop-up-3  .btn-agregar{
+    padding: 0px 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    background-color: #5b7de3;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.pop-up  .btn-agregar:hover,.pop-up-3  .btn-agregar:hover{
+    background-color: rgba(94, 125,227, 0.4);
+
+}
+
+/*animaciones*/
+.pop-up.active,.pop-up-3.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pop-up.active h3,.pop-up-3.active h3{
+    animation: entrada 0.8s ease 0.5s forwards;
+}
+
+
+.pop-up.active .contenedor-inputs input,.pop-up-3.active .contenedor-inputs input{
+    animation: entrada3 1s ease 1s forwards;
+}
+@keyframes entrada {
+    from{
+        transform:translateY(-50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0) ;
+        opacity: 1;}
+    }
+
+@keyframes entrada2 {
+        from{
+            transform:translateY(50px);
+            opacity: 0;
+        }
+        to{
+            transform: translateY(0) ;
+            opacity: 1;}
+    }
+    
+@keyframes entrada3{
+        from{
+            opacity: 0;
+            box-shadow: none;
+        }
+        to{
+            opacity: 1;
+            box-shadow: 5px 10px 5px #000;
+        }
+}
