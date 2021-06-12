@@ -149,11 +149,11 @@ li.done::before{
 }
 
 
-.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs #tarea{
+.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs button{
     opacity: 0;
 }
 
-.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs #tarea{
+.pop-up  .contenedor-inputs #tarea,  .contenedor-inputs button{
     width: 100%;
     margin-bottom: 20px;
     height: 52px;
@@ -164,7 +164,7 @@ li.done::before{
 }
 
 
-.pop-up  .btn-agregar,.pop-up-3  .btn-agregar{
+.pop-up  .btn-agregar,  .btn-eliminar{
     padding: 0px 20px;
     height: 40px;
     line-height: 40px;
@@ -177,7 +177,7 @@ li.done::before{
     transition: 0.3s all ease;
 }
 
-.pop-up  .btn-agregar:hover,.pop-up-3  .btn-agregar:hover{
+.pop-up  .btn-agregar:hover, .pop-up-3  .btn-eliminar:hover{
     background-color: rgba(94, 125,227, 0.4);
 
 }
@@ -196,6 +196,7 @@ li.done::before{
 .pop-up.active .contenedor-inputs input,.pop-up-3.active .contenedor-inputs input{
     animation: entrada3 1s ease 1s forwards;
 }
+
 @keyframes entrada {
     from{
         transform:translateY(-50px);

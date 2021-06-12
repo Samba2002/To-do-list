@@ -163,6 +163,9 @@ tareasListas.forEach(e=>{
 
 
 function Myfunction(){
+    if(localStorage.length==1){}
+
+    else{
     tareasListas.forEach(e=>{
         if(e.toString()!="[object Text]"){
             if(e.classList.contains("done")==true){
@@ -171,9 +174,9 @@ function Myfunction(){
 
             for(u=1;u<=localStorage.length;u++){
                 if(localStorage[u]==e.innerText){
-                    localStorage.removeItem(u)}
+                    localStorage.removeItem(u)}}
         
-}}}})}
+}}})}}
 
 
 setInterval(Myfunction,5000)
