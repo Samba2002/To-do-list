@@ -164,7 +164,7 @@ li.done::before{
 }
 
 
-.pop-up  .btn-agregar,  .btn-eliminar{
+.pop-up  .btn-agregar, .pop-up-3  .btn-eliminar{
     padding: 0px 20px;
     height: 40px;
     line-height: 40px;
