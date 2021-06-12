@@ -102,17 +102,16 @@ botoncerrar3.addEventListener("click",e=>{
                  alert("Ya existe esa tarea")}}
                  
                  
-                 
-                 
+                
                  eliminar.addEventListener('click',e=>{
                 if (input3.value === '') {
                     alert("No puede introducir una tarea vacia");
                 } 
-            else if(elementos.namedItem(input3.value)!=null) {
-                lista.removeChild(elementos.namedItem(input3.value));
-                for(u=1;u<=localStorage.length;u++){
+                    else if(elementos.namedItem(input3.value)!=null) {
+                    lista.removeChild(elementos.namedItem(input3.value));
+                    for(u=1;u<=localStorage.length;u++){
                     
-                    if(localStorage[u]==input3.value){
+                        if(localStorage[u]==input3.value){
                         localStorage.removeItem(u)
                     }}
 
