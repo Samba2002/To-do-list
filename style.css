@@ -40,11 +40,43 @@ body{
 
 .contenedor .contenedor-tareas ol li{
     margin: 5px;
+    list-style-type: none;
+  position: relative;
+  margin: 2px;
+  padding: 0.5em 0.5em 0.5em 2em;
+    background-color: #5b7de37c;
+    border-radius: 25px;
+  font-family: sans-serif;
+}
+.contenedor .contenedor-tareas ol li.done{
+    margin: 5px;
+    list-style-type: none;
+  position: relative;
+  margin: 2px;
+  padding: 0.5em 0.5em 0.5em 2em;
+    background-color: #46bb46a4;
+    border-radius: 25px;
+  font-family: sans-serif;
+}
+
+li.done::before{
+    content: '';
+    position: absolute;
+    border-color: #009933;
+    border-style: solid;
+    border-width: 0 0.3em 0.25em 0;
+    height: 1em;
+    top: 0.5em;
+    right: 17px;
+    margin-top: 0;
+    transform: rotate(45deg);
+    width: 0.5em;
 }
 
 .contenedor .contenedor-tareas .lista{
     transition: all 0.3s ease;
 }
+
 .botones{
     display: flex;
     flex-direction: row;
@@ -117,11 +149,11 @@ body{
 }
 
 
-.pop-up  .contenedor-inputs input,.pop-up-3  .contenedor-inputs input{
+.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs #tarea{
     opacity: 0;
 }
 
-.pop-up  .contenedor-inputs input,.pop-up-3  .contenedor-inputs input{
+.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs #tarea{
     width: 100%;
     margin-bottom: 20px;
     height: 52px;
