@@ -64,14 +64,14 @@ body{
     justify-content: center;
     content: '';
     position: absolute;
-    top: 8%;
-    right: 4%;
+    top: 6.5%;
+    right: 2.8%;
     margin: 2px;
     border: #6e1eafad solid 5px;
     background-color: #36b165d3;
     border-radius: 0;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2em;
+    height: 1.2em;
     font-family: sans-serif;
     transition: all ease-in 0.5s;
     user-select: none;
@@ -121,7 +121,7 @@ li.done::before{
     border-radius: 10px;
 }
 
-.over-lay,.over-lay-3{
+.over-lay{
     background-color: rgba(0, 0,0, 0.3);
     position: fixed;
     top:0;
@@ -134,11 +134,11 @@ li.done::before{
     visibility: hidden;
 }
 
-.over-lay.active,.over-lay-3.active{
+.over-lay.active{
     visibility: visible;
 }
 
-.pop-up,.pop-up-3{
+.pop-up{
     
     background-color: #f8f8f8;
     box-shadow: 0px 0px 5px 0px rgba(0, 0,0, 0.3);
@@ -152,7 +152,7 @@ li.done::before{
     transform: scale(0.7);
 }
 
-.pop-up .btn-cerrar,.pop-up-3 .btn-cerrar-3{
+.pop-up .btn-cerrar{
     position: absolute;
     right: 8px;
     top:3px;
@@ -165,7 +165,7 @@ li.done::before{
     text-decoration: none;
 }
 
-.pop-up .btn-cerrar:hover,.pop-up-3 .btn-cerrar-3:hover{
+.pop-up .btn-cerrar:hover{
     color: #000;
 }
 
@@ -177,11 +177,11 @@ li.done::before{
 }
 
 
-.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs input{
+.pop-up  .contenedor-inputs #tarea{
     opacity: 0; 
 }
 
-.pop-up  .contenedor-inputs #tarea,.pop-up-3  .contenedor-inputs input{
+.pop-up  .contenedor-inputs #tarea{
     width: 100%;
     margin-bottom: 20px;
     height: 52px;
@@ -192,7 +192,7 @@ li.done::before{
 }
 
 
-.pop-up  .btn-agregar, .pop-up-3  .btn-eliminar{
+.pop-up  .btn-agregar{
     padding: 0px 20px;
     height: 40px;
     line-height: 40px;
@@ -205,23 +205,23 @@ li.done::before{
     transition: 0.3s all ease;
 }
 
-.pop-up  .btn-agregar:hover, .pop-up-3  .btn-eliminar:hover{
+.pop-up  .btn-agregar:hover {
     background-color: rgba(94, 125,227, 0.4);
 
 }
 
 /*animaciones*/
-.pop-up.active,.pop-up-3.active{
+.pop-up.active{
     opacity: 1;
     transform: scale(1);
 }
 
-.pop-up.active h3,.pop-up-3.active h3{
+.pop-up.active h3{
     animation: entrada 0.5s ease 0.5s forwards;
 }
 
 
-.pop-up.active .contenedor-inputs input,.pop-up-3.active .contenedor-inputs input{
+.pop-up.active .contenedor-inputs input{
     animation: entrada3 0.5s ease 0.2s forwards;
 }
 
@@ -235,15 +235,7 @@ li.done::before{
         opacity: 1;}
     }
 
-@keyframes entrada2 {
-        from{
-            transform:translateY(50px);
-            opacity: 0;
-        }
-        to{
-            transform: translateY(0) ;
-            opacity: 1;}
-    }
+
     
 @keyframes entrada3{
         from{

@@ -17,6 +17,7 @@ body{
     box-sizing: border-box;
     margin: 5px;
     width: 65%;
+    
     background-color: rgba(250,250,250, 0.8);
     border: 8px solid rgba(100 ,150, 250, 1);
     border-radius: 0px 20%;
@@ -40,11 +41,70 @@ body{
 
 .contenedor .contenedor-tareas ol li{
     margin: 5px;
+    list-style-type: none;
+  position: relative;
+  
+  padding: 0.5em 2em 0.5em 1.25em;
+    background-color: #5b7de37c;
+    border-radius: 25px;
+  font-family: sans-serif;
+  width: 85%;
+  margin-right: 15px;
+  overflow-wrap: break-word;
+}
+
+.contenedor .contenedor-tareas ol li{
+    transition: all ease-in 0.5s;
+}
+.contenedor .contenedor-tareas ol li div{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    content: '';
+    position: absolute;
+    top: 6.5%;
+    right: 2.8%;
+    margin: 2px;
+    border: #6e1eafad solid 5px;
+    background-color: #36b165d3;
+    border-radius: 0;
+    width: 1.2em;
+    height: 1.2em;
+    font-family: sans-serif;
+    transition: all ease-in 0.5s;
+    user-select: none;
+    cursor: pointer;
+}
+.contenedor .contenedor-tareas ol li.done{
+    margin: 5px;
+    list-style-type: none;
+    position: relative;
+    padding: 0.5em 2em 0.5em 1.25em;
+    background-color: #46bb46a4;
+    border-radius: 25px;
+    font-family: sans-serif;
+}
+
+li.done::before{
+    content: '';
+    position: absolute;
+    border-color: #009933;
+    border-style: solid;
+    border-width: 0 0.3em 0.25em 0;
+    height: 1em;
+    top: 0.5em;
+    right: 17px;
+    margin-top: 0;
+    transform: rotate(45deg);
+    width: 0.5em;
 }
 
 .contenedor .contenedor-tareas .lista{
     transition: all 0.3s ease;
 }
+
 .botones{
     display: flex;
     flex-direction: row;
@@ -61,7 +121,7 @@ body{
     border-radius: 10px;
 }
 
-.over-lay,.over-lay-3{
+.over-lay{
     background-color: rgba(0, 0,0, 0.3);
     position: fixed;
     top:0;
@@ -74,11 +134,11 @@ body{
     visibility: hidden;
 }
 
-.over-lay.active,.over-lay-3.active{
+.over-lay.active{
     visibility: visible;
 }
 
-.pop-up,.pop-up-3{
+.pop-up{
     
     background-color: #f8f8f8;
     box-shadow: 0px 0px 5px 0px rgba(0, 0,0, 0.3);
@@ -92,7 +152,7 @@ body{
     transform: scale(0.7);
 }
 
-.pop-up .btn-cerrar,.pop-up-3 .btn-cerrar-3{
+.pop-up .btn-cerrar{
     position: absolute;
     right: 8px;
     top:3px;
@@ -105,7 +165,7 @@ body{
     text-decoration: none;
 }
 
-.pop-up .btn-cerrar:hover,.pop-up-3 .btn-cerrar-3:hover{
+.pop-up .btn-cerrar:hover{
     color: #000;
 }
 
@@ -117,11 +177,11 @@ body{
 }
 
 
-.pop-up  .contenedor-inputs input,.pop-up-3  .contenedor-inputs input{
-    opacity: 0;
+.pop-up  .contenedor-inputs #tarea{
+    opacity: 0; 
 }
 
-.pop-up  .contenedor-inputs input,.pop-up-3  .contenedor-inputs input{
+.pop-up  .contenedor-inputs #tarea{
     width: 100%;
     margin-bottom: 20px;
     height: 52px;
@@ -132,7 +192,7 @@ body{
 }
 
 
-.pop-up  .btn-agregar,.pop-up-3  .btn-agregar{
+.pop-up  .btn-agregar{
     padding: 0px 20px;
     height: 40px;
     line-height: 40px;
@@ -145,25 +205,26 @@ body{
     transition: 0.3s all ease;
 }
 
-.pop-up  .btn-agregar:hover,.pop-up-3  .btn-agregar:hover{
+.pop-up  .btn-agregar:hover {
     background-color: rgba(94, 125,227, 0.4);
 
 }
 
 /*animaciones*/
-.pop-up.active,.pop-up-3.active{
+.pop-up.active{
     opacity: 1;
     transform: scale(1);
 }
 
-.pop-up.active h3,.pop-up-3.active h3{
-    animation: entrada 0.8s ease 0.5s forwards;
+.pop-up.active h3{
+    animation: entrada 0.5s ease 0.5s forwards;
 }
 
 
-.pop-up.active .contenedor-inputs input,.pop-up-3.active .contenedor-inputs input{
-    animation: entrada3 1s ease 1s forwards;
+.pop-up.active .contenedor-inputs input{
+    animation: entrada3 0.5s ease 0.2s forwards;
 }
+
 @keyframes entrada {
     from{
         transform:translateY(-50px);
@@ -174,15 +235,7 @@ body{
         opacity: 1;}
     }
 
-@keyframes entrada2 {
-        from{
-            transform:translateY(50px);
-            opacity: 0;
-        }
-        to{
-            transform: translateY(0) ;
-            opacity: 1;}
-    }
+
     
 @keyframes entrada3{
         from{
