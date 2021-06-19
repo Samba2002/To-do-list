@@ -116,7 +116,7 @@ class List{
         }
     
         completa(x){
-            x.classList.toggle("done")
+            x.classList.add("done")
         }
 
         eliminarCompletas(){
@@ -170,7 +170,7 @@ window.addEventListener("load",e=>{Lista.creados();
 
     array.forEach(i=>i.addEventListener('click',function completadas(e){
         Lista.completa(i);
-        setInterval(Lista.eliminarCompletas(),5000);
+        setInterval(Lista.eliminarCompletas(),10000);
     }))
     
     for(u=1;u<elementos.length;u++){
