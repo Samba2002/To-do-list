@@ -48,6 +48,31 @@ body{
     border-radius: 25px;
   font-family: sans-serif;
 }
+
+.contenedor .contenedor-tareas ol li{
+    transition: all ease-in 0.5s;
+}
+.contenedor .contenedor-tareas ol li div{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    content: '';
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    margin: 2px;
+    border: #6e1eafad solid 5px;
+    background-color: #36b165d3;
+    border-radius: 0;
+    width: 1.5em;
+    height: 1.5em;
+    font-family: sans-serif;
+    transition: all ease-in 0.5s;
+    user-select: none;
+    cursor: pointer;
+}
 .contenedor .contenedor-tareas ol li.done{
     margin: 5px;
     list-style-type: none;
@@ -189,12 +214,12 @@ li.done::before{
 }
 
 .pop-up.active h3,.pop-up-3.active h3{
-    animation: entrada 0.8s ease 0.5s forwards;
+    animation: entrada 0.5s ease 0.5s forwards;
 }
 
 
 .pop-up.active .contenedor-inputs input,.pop-up-3.active .contenedor-inputs input{
-    animation: entrada3 1s ease 1s forwards;
+    animation: entrada3 0.5s ease 0.2s forwards;
 }
 
 @keyframes entrada {
