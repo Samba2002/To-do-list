@@ -58,11 +58,12 @@ class List{
         localStorage.setItem(contadora,input.value);
         overlay.classList.toggle('active');
         popup.classList.toggle('active');
-        localStorage.setItem("0",contadora)
+        localStorage.setItem("0",contadora);
+        window.location.reload();
     }
 
         creados(){
-            if(localStorage.length!=0){
+            if(localStorage.length>1){
             if(lista.children[0].innerText=="No hay Tareas"){
                 lista.children[0].innerText=""
             }}
@@ -102,15 +103,15 @@ class List{
         borrar(){
             array2=array.filter(e=>e.firstElementChild.innerText=="X");
             for(u=0;u<=contadora;u++){
-            array2.forEach(e=>{if(e==lista.children[u]){lista.removeChild(lista.children[u]);}})
+            array2.forEach(e=>{if(e==lista.children[u]){lista.removeChild(lista.children[u]);}})}
             
-            }
-           
             for(u=0;u<=contadora;u++){
                 array.forEach(e=>{
                 if(e.textContent==localStorage[(u).toString()]+"X"){
                 console.log(localStorage[u.toString()])
-                            localStorage.removeItem(u.toString())}})}  
+                            localStorage.removeItem(u.toString())}
+                        })
+                    }  
                         
             
         }
@@ -138,50 +139,53 @@ class List{
 var f=1
 const Lista= new List
 
+function completadas(){
+    Lista.eliminarCompletas();
+}
+
 boton.addEventListener('click',e=>Lista.mostrarPopUp());
 agregar.addEventListener('click',e=>{Lista.agregar(input.value); input.value=""})
 
 botoncerrar.addEventListener('click',e=>{overlay.classList.toggle('active');popup.classList.toggle('active')});
 
 
-if(Number(contadora)!=1){boton3.addEventListener("click",e=>{
+
     array.forEach(i=>i.addEventListener('click',e=>i.classList.remove("done")))
 
-    for(u=0;u<contadora;u++){
-    if(boton3.innerText=="Eliminar"){
-        Lista.mostrarCasilla();
-        alert("Para seleccionar, haga Click en la casilla, para deseleccionar haga doble click en la misma casilla")}
     
-    else if(boton3.innerText=="Confirmar"){
-        boton3.addEventListener("click",e=>{Lista.borrar();window.location.reload()
-        } )}
-        
     
+        boton3.addEventListener("click",e=>{
 
-else{boton3.addEventListener("click",e=>alert("Agregue tareas antes"))};
-    }})}
+        if(elementos.length>1){
+        if(boton3.innerText=="Eliminar"){
+        Lista.mostrarCasilla()
+        alert("Para seleccionar, haga Click en la casilla, para deseleccionar haga doble click en la misma casilla");
+        array.forEach(i=>i.removeEventListener('click',completadas))
 
-
-
+        array.forEach(t=>t.addEventListener('click',r=>Lista.seleccionar(t.firstElementChild)));
+        array.forEach(i=>i.addEventListener('click',e=>i.classList.remove("done")));
+        boton3.innerText="Confirmar";}
+    
+        else if(boton3.innerText=="Confirmar"){
+        Lista.borrar();window.location.reload()}}
+    
+        else if(elementos.length==1){alert("Agregue tareas antes")};
+    })
+    
+      
 window.addEventListener("load",e=>{Lista.creados();
 
     for(u=1;u<elementos.length;u++){
         array.push(elementos[u])}
 
-    array.forEach(i=>i.addEventListener('click',function completadas(e){
-        Lista.completa(i);
-        setInterval(Lista.eliminarCompletas(),10000);
-    }))
+        array.forEach(i=>{
     
-    for(u=1;u<elementos.length;u++){
-        array.push(elementos[u])};
+        if(i.classList.contains("done")==false){
+            i.addEventListener("click",e=>Lista.completa(i))
+            i.addEventListener('click',completadas)}})
+    })
     
-        array.forEach(t=>t.addEventListener('click',r=>Lista.seleccionar(t.firstElementChild)))
-})
 
 
 
-
-
-
-
+   
